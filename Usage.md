@@ -90,7 +90,7 @@ slither file.sol --exclude naming-convention,unused-state,suicidal
 
 To exclude detectors with an informational or low severity, use `--exclude-informational` or `--exclude-low`.
 
-`--list-detectors` lists [available detectors](https://github.com/trailofbits/slither/wiki/Detectors-Documentation).
+`--list-detectors` lists [available detectors](https://github.com/trailofbits/slither/wiki/Detector-Documentation).
 
 ### Printer selection
 
@@ -101,7 +101,7 @@ To run selected printers, use `--print printer1,printer2`. For example:
 slither file.sol --print inheritance-graph
 ```
 
-`--list-printers` lists [available printers](https://github.com/trailofbits/slither/wiki/Printers-Documentation).
+`--list-printers` lists [available printers](https://github.com/trailofbits/slither/wiki/Printer-Documentation).
 
 ### Path filtering
 
@@ -170,7 +170,7 @@ The following flags are supported:
 For flags related to the compilation, see the [`crytic-compile` configuration](https://github.com/crytic/crytic-compile/blob/master/crytic_compile/cryticparser/defaults.py)
 
 ## IDE integrations
-
+<!--- TODO, opinion: all three projects look dead, remove ? --->
 * Remix: https://github.com/samparsky/remix-plugin-slither (http://remix.ethereum.org/ integration in progress)
 * Embark: https://github.com/embark-framework/embark-slither (Work in progress)
 * Visual Studio: https://github.com/samparsky/slither-vscode (Work in progress)

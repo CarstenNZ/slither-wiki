@@ -5,7 +5,7 @@
 - [Developer installation](./Developer-installation): How to extend Slither
 
 ## Bounties
-
+<!--- TODO, opinion: gitcoin looks dead, remove ? --->
 We're happy to offer bounties for contributions to Slither! Please review [Gitcoin](https://gitcoin.co/profile/trailofbits) for a list of available bounties.
 
 Upon any new release, Trail of Bits may consider sending a bounty payment to any PR that was not covered by Gitcoin. In these cases, we will send an automated payment to the email in your `git log` via PayPal.

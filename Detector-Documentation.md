@@ -344,7 +344,7 @@ Detects logic contract that can be destructed.
         }
     }
     ```
-    Buggy is an upgradeable contract. Anyone can call initialize on the logic contract, and destruct the contract.
+Buggy is an upgradeable contract. Anyone can call initialize on the logic contract, and destruct the contract.
 
 ### Recommendation
 Add a constructor to ensure `initialize` cannot be called on the logic contract.
@@ -904,7 +904,7 @@ contract Constant{
     uint counter;
     function get() public view returns(uint){
        counter = counter +1;
-       return counter
+       return counter;
     }
 }
 ```
@@ -936,7 +936,7 @@ contract Constant{
     uint counter;
     function get() public view returns(uint){
        counter = counter +1;
-       return counter
+       return counter;
     }
 }
 ```
@@ -1132,7 +1132,7 @@ Uninitialized local variables.
 contract Uninitialized is Owner{
     function withdraw() payable public onlyOwner{
         address to;
-        to.transfer(this.balance)
+        to.transfer(this.balance);
     }
 }
 ```
@@ -1297,7 +1297,7 @@ Detects the possible usage of a variable before the declaration is stepped over 
 ```solidity
 contract C {
     function f(uint z) public returns (uint) {
-        uint y = x + 9 + z; // 'z' is used pre-declaration
+        uint y = x + 9 + z; // 'x' is used pre-declaration
         uint x = 7;
 
         if (z % 2 == 0) {
@@ -1373,7 +1373,7 @@ contract CallsInLoop{
 If one of the destinations has a fallback function that reverts, `bad` will always revert.
 
 ### Recommendation
-Favor [pull over push](https://github.com/ethereum/wiki/wiki/Safety#favor-pull-over-push-for-external-calls) strategy for external calls.
+Favor [pull over push](https://eth.wiki/en/howto/smart-contract-safety#favor-pull-over-push-for-external-calls) strategy for external calls.
 
 ## Missing events access control
 ### Configuration
@@ -1433,7 +1433,7 @@ contract C {
     }    
 }
 ```
-`updateOwner()` has no event, so it is difficult to track off-chain changes in the buy price. 
+`setBuyPrice()` has no event, so it is difficult to track off-chain changes in the buy price. 
 
 
 ### Recommendation
@@ -1513,7 +1513,7 @@ Only report reentrancy that acts as a double call (see `reentrancy-eth`, `reentr
         if( ! (msg.sender.call()() ) ){
             throw;
         }
-        counter += 1
+        counter += 1;
     }   
 ```
 
@@ -1543,7 +1543,7 @@ Only report reentrancies leading to out-of-order events.
     }
 ```
 
-If `d.()` re-enters, the `Counter` events will be shown in an incorrect order, which might lead to issues for third parties.
+If `d.f()` re-enters, the `Counter` events will be shown in an incorrect order, which might lead to issues for third parties.
 
 ### Recommendation
 Apply the [`check-effects-interactions` pattern](http://solidity.readthedocs.io/en/v0.4.21/security-considerations.html#re-entrancy).
@@ -1956,7 +1956,7 @@ Functions that are not sued.
 
 ```solidity
 contract Contract{
-    function dead_code() internal() {}
+    function dead_code() internal {}
 }
 ```
 `dead_code` is not used in the contract, and make the code's review more difficult.
@@ -1979,7 +1979,7 @@ Only report reentrancy that is based on `transfer` or `send`.
 
 ```solidity
     function callme(){
-        msg.sender.transfer(balances[msg.sender]):
+        msg.sender.transfer(balances[msg.sender]);
         balances[msg.sender] = 0;
     }   
 ```
